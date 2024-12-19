@@ -43,6 +43,7 @@ class EmailDevice(ThrottlingMixin, SideChannelDevice):
         null=True,
         help_text='Optional alternative email address to send tokens to'
     )
+    confirmed = models.BooleanField(default=False, help_text="Is this device ready for use?")
 
     def get_throttle_factor(self):
         return settings.OTP_EMAIL_THROTTLE_FACTOR
